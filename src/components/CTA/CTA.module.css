@@ -2,14 +2,14 @@
   position: relative;
   padding: 200px 40px;
   background: var(--bg-color);
-  overflow: visible; /* 🔥 permite imagens "vazarem" */
+  overflow: visible;
 
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 
-  z-index: 20; /* 🔥 acima das outras sections */
+  z-index: 20;
 }
 
 /* CONTEÚDO */
@@ -55,7 +55,7 @@
 
 .outline:hover {
   background: var(--text-color);
-  color: white;
+  color: var(--bg-color);
 }
 
 .filled {
@@ -63,7 +63,7 @@
   border-radius: 999px;
   border: none;
   background: var(--accent-color);
-  color: white;
+  color: var(--bg-color);
   font-size: 12px;
   letter-spacing: 0.1em;
   cursor: pointer;
@@ -80,11 +80,11 @@
   position: absolute;
   object-fit: cover;
 
-  z-index: 30; /* 🔥 acima de TUDO */
+  z-index: 30;
   pointer-events: none;
 
   will-change: transform;
-  transform: translateZ(0); /* 🔥 melhora performance */
+  transform: translateZ(0);
 }
 
 /* POSIÇÕES */

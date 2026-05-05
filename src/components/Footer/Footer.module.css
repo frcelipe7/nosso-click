@@ -1,7 +1,7 @@
 .footer {
-  background: #b7b19a; /* tom semelhante ao seu layout */
+  background: var(--accent-color-1);
   padding: 80px 40px 30px;
-  color: #fff;
+  color: #f8f5f0;
 }
 
 /* CONTAINER */
@@ -39,7 +39,7 @@
 .dots span {
   width: 10px;
   height: 10px;
-  background: white;
+  background: #f8f5f0;
   border-radius: 50%;
   opacity: 0.7;
 }
@@ -80,8 +80,8 @@
   border-radius: 999px;
   border: none;
 
-  background: white;
-  color: black;
+  background: #f8f5f0;
+  color: #000;
 
   font-size: 12px;
   letter-spacing: 0.1em;

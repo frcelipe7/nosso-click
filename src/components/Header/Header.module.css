@@ -3,6 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
+  box-sizing: border-box;
   z-index: 100;
 
   padding: 20px 60px;
@@ -10,7 +11,7 @@
   display: flex;
   justify-content: center;
 
-  background: #f7f6f170;
+  background: var(--bg-color-transparent);
   backdrop-filter: blur(10px);
 
   transform: translateY(-80px);
@@ -21,9 +22,10 @@
   width: 100%;
   max-width: 1400px;
 
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .nav {
@@ -46,10 +48,19 @@
 }
 
 .logo {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); 
+  
+  white-space: nowrap;
+  margin-right: -0.3em; 
+  
   text-align: center;
   font-family: "Playfair Display", serif;
   font-size: 18px;
   letter-spacing: 0.3em;
+  color: var(--text-color);
 }
 
 .actions {
@@ -59,20 +70,6 @@
   gap: 20px;
 }
 
-.icons {
-  display: flex;
-  gap: 15px;
-}
-
-.icon {
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.icon:hover {
-  transform: scale(1.1);
-}
-
 .cta {
   border: 1px solid var(--text-color);
   padding: 8px 18px;
@@ -80,11 +77,45 @@
   font-size: 12px;
   letter-spacing: 0.1em;
   background: transparent;
+  color: var(--text-color);
   cursor: pointer;
   transition: 0.3s;
 }
 
 .cta:hover {
   background: var(--text-color);
-  color: white;
+  color: var(--bg-color);
+}
+
+.themeBtn {
+  background: transparent;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  line-height: 1; 
+}
+
+.themeBtn:hover {
+  transform: scale(1.15) rotate(10deg);
+}
+
+
+/* ================= RESPONSIVO ================= */
+@media (max-width: 900px) {
+  .header {
+    padding: 15px 24px; 
+  }
+  
+  .nav {
+    display: none; 
+  }
+  
+  .actions .cta:last-child {
+    display: none; 
+  }
 }

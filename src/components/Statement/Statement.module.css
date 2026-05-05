@@ -2,7 +2,6 @@
   position: relative;
   padding: 200px 40px;
   background: var(--bg-color);
-  /* overflow: hidden; */
 
   display: flex;
   justify-content: center;

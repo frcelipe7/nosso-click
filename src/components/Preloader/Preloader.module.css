@@ -1,0 +1,23 @@
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: var(--bg-color); 
+  z-index: 9999; 
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ball {
+  width: 10px;
+  height: 10px; 
+  background-color: #bea996;
+  border-radius: 50%;
+  will-change: transform; 
+  margin-top: 35px;
+  margin-left: -15px;
+}

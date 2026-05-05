@@ -62,7 +62,7 @@
 
 .button:hover {
   background: var(--text-color);
-  color: white;
+  color: var(--bg-color);
 }
 
 /* SPLIT TEXT */

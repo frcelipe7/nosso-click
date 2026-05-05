@@ -3,11 +3,11 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import styles from "./Statement.module.css";
 
-import f1 from "../../assets/images/Statement/f1.jpeg";
-import f2 from "../../assets/images/Statement/f2.jpeg";
-import f3 from "../../assets/images/Statement/f3.jpeg";
-import f4 from "../../assets/images/Statement/f4.jpeg";
-import f5 from "../../assets/images/Statement/f5.jpg";
+import f1 from "../../assets/images/Statement/f1.webp";
+import f2 from "../../assets/images/Statement/f2.webp";
+import f3 from "../../assets/images/Statement/f3.webp";
+import f4 from "../../assets/images/Statement/f4.webp";
+import f5 from "../../assets/images/Statement/f5.webp";
 
 gsap.registerPlugin(ScrollTrigger);
 

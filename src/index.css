@@ -2,8 +2,21 @@
 
 :root {
   --bg-color: #f8f5f0;
+  --bg-color-transparent: #f8f5f070;
+
   --text-color: #1a1a1a;
-  --accent-color: #b88b5f;
+  --dark-text-color: #ffffff;
+  
+  --accent-color: #b2967a;
+  --accent-color-1: #a29d88;
+}
+
+[data-theme="dark"] {
+  --bg-color: #1a1a1a;
+  --bg-color-transparent: rgba(26, 26, 26, 0.7);
+
+  --text-color: #f8f5f0;
+  --dark-text-color: #1a1a1a;
 }
 
 html, body {
@@ -17,6 +30,8 @@ body {
   color: var(--text-color);
   font-family: 'Montserrat', sans-serif;
   overflow-x: hidden;
+  
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 h1, h2, h3 {

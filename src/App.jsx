@@ -1,13 +1,14 @@
-import { useEffect, useState  } from "react";
+import { useEffect, useState, useRef } from "react";
 import Lenis from "lenis";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import Preloader from "./components/Preloader/Preloader"; // Confirme se o caminho está correto
 import Header from "./components/Header/Header";
 import Hero from "./components/Hero/Hero";
 import About from "./components/About/About";
 import Statement from "./components/Statement/Statement";
-import Services from "./components/Services/Services";
+// import Services from "./components/Services/Services";
 import ServiceAlternativo from "./components/ServiceAlternativo/ServiceAlternativo";
 import CTA from "./components/CTA/CTA";
 import DynamicGallery from "./components/DynamicGallery/DynamicGallery";
@@ -17,6 +18,9 @@ gsap.registerPlugin(ScrollTrigger);
 
 export default function App() {
   const [heroReady, setHeroReady] = useState(false);
+  const [preloaderFinished, setPreloaderFinished] = useState(false);
+  
+  const lenisRef = useRef(null);
 
   useEffect(() => {
     const lenis = new Lenis({
@@ -26,7 +30,10 @@ export default function App() {
       smoothTouch: false,
     });
 
-    // sincroniza com GSAP
+    lenisRef.current = lenis;
+
+    lenis.stop();
+
     lenis.on("scroll", ScrollTrigger.update);
 
     function raf(time) {
@@ -36,7 +43,6 @@ export default function App() {
 
     requestAnimationFrame(raf);
 
-    // MUITO IMPORTANTE
     ScrollTrigger.scrollerProxy(document.body, {
       scrollTop(value) {
         return arguments.length
@@ -55,10 +61,23 @@ export default function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (preloaderFinished && lenisRef.current) {
+      lenisRef.current.start();
+    }
+  }, [preloaderFinished]);
+
   return (
     <main>
+      <Preloader onComplete={() => setPreloaderFinished(true)} />
+
       <Header show={heroReady} />
-      <Hero onHeroReady={() => setHeroReady(true)} />
+      
+      <Hero 
+        startAnimation={preloaderFinished} 
+        onHeroReady={() => setHeroReady(true)} 
+      />
+      
       <About />
       <Statement />
       {/* <Services /> */}
