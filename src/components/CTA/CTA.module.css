@@ -1,0 +1,132 @@
+.section {
+  position: relative;
+  padding: 200px 40px;
+  background: var(--bg-color);
+  overflow: visible; /* 🔥 permite imagens "vazarem" */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  z-index: 20; /* 🔥 acima das outras sections */
+}
+
+/* CONTEÚDO */
+
+.content {
+  position: relative;
+  z-index: 30;
+  max-width: 700px;
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(28px, 4vw, 42px);
+  line-height: 1.4;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 15px;
+  opacity: 0.8;
+  margin-bottom: 30px;
+}
+
+/* BOTÕES */
+
+.buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.outline {
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: 1px solid var(--text-color);
+  background: transparent;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.outline:hover {
+  background: var(--text-color);
+  color: white;
+}
+
+.filled {
+  padding: 12px 24px;
+  border-radius: 999px;
+  border: none;
+  background: var(--accent-color);
+  color: white;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.filled:hover {
+  transform: scale(1.05);
+}
+
+/* IMAGENS FLUTUANTES */
+
+.img {
+  position: absolute;
+  object-fit: cover;
+
+  z-index: 30; /* 🔥 acima de TUDO */
+  pointer-events: none;
+
+  will-change: transform;
+  transform: translateZ(0); /* 🔥 melhora performance */
+}
+
+/* POSIÇÕES */
+
+.i1 {
+  width: 50px;
+  top: 10%;
+  left: 20%;
+}
+
+.i2 {
+  width: 120px;
+  top: 15%;
+  right: 15%;
+}
+
+.i3 {
+  width: 80px;
+  top: 5%;
+  left: 40%;
+}
+
+.i4 {
+  width: 180px;
+  bottom: 10%;
+  right: 10%;
+}
+
+.i5 {
+  width: 220px;
+  bottom: -20px;
+  left: 5%;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 900px) {
+  .section {
+    padding: 140px 20px;
+  }
+
+  .img {
+    display: none;
+  }
+}

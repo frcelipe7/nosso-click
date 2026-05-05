@@ -1,0 +1,117 @@
+.footer {
+  background: #b7b19a; /* tom semelhante ao seu layout */
+  padding: 80px 40px 30px;
+  color: #fff;
+}
+
+/* CONTAINER */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 60px;
+}
+
+/* ESQUERDA */
+
+.logo {
+  font-family: "Playfair Display", serif;
+  letter-spacing: 0.2em;
+  margin-bottom: 15px;
+}
+
+.description {
+  font-size: 14px;
+  line-height: 1.7;
+  max-width: 300px;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.dots {
+  display: flex;
+  gap: 10px;
+}
+
+.dots span {
+  width: 10px;
+  height: 10px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.7;
+}
+
+/* CENTRO */
+
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 14px;
+}
+
+.links p {
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.links p:hover {
+  opacity: 0.7;
+}
+
+/* DIREITA */
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-start;
+}
+
+.ctaText {
+  font-size: 14px;
+}
+
+.ctaButton {
+  padding: 10px 20px;
+  border-radius: 999px;
+  border: none;
+
+  background: white;
+  color: black;
+
+  font-size: 12px;
+  letter-spacing: 0.1em;
+
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.ctaButton:hover {
+  transform: scale(1.05);
+}
+
+/* BOTTOM */
+
+.bottom {
+  margin-top: 60px;
+  text-align: center;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .right {
+    align-items: flex-start;
+  }
+}

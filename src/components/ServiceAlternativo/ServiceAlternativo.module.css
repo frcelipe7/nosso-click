@@ -1,0 +1,145 @@
+.container {
+  display: flex;
+  width: 100%;
+  background: var(--bg-color);
+  position: relative;
+  /* Não definimos height fixo aqui para o container crescer conforme o número de imagens */
+}
+
+/* ================= LEFT (FIXO) ================= */
+
+.leftSide {
+  width: 50%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  padding: 0 8%;
+  z-index: 10;
+  /* Garantimos que o painel fixo não sobreponha as imagens se houver resize */
+  pointer-events: none; 
+}
+
+.contentWrapper {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Espaço para o conteúdo do texto */
+}
+
+.infoBlock {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titleMask {
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(40px, 5vw, 72px);
+  margin: 0;
+  text-transform: uppercase;
+  transform: translateY(100%); /* Começa na máscara */
+  color: var(--text-color);
+}
+
+.fadeContent {
+  opacity: 0; /* Começa invisível */
+}
+
+.description {
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.8;
+  margin-bottom: 40px;
+  max-width: 450px;
+  opacity: 0.8;
+  color: var(--text-color);
+}
+
+.btn {
+  pointer-events: all; /* Permite clique mesmo com o pai bloqueado */
+  width: fit-content;
+  padding: 14px 38px;
+  border: 1px solid var(--text-color);
+  background: transparent;
+  border-radius: 50px;
+  font-family: var(--font-sans);
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  background: var(--text-color);
+  color: var(--bg-color);
+}
+
+/* ================= RIGHT (SCROLL) ================= */
+
+.rightSide {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+}
+
+.imageItem {
+  width: 100%;
+  height: 100vh; /* Cada imagem ocupa exatamente a altura da tela */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 5%; /* Respiro lateral conforme protótipo */
+}
+
+.aspectRatioBox {
+  width: 85%; /* Ajuste fino da largura */
+  aspect-ratio: 4 / 3; /* Proporção horizontal fixa */
+  overflow: hidden;
+  background: #f0f0f0;
+  box-shadow: 0 40px 100px -20px rgba(0, 0, 0, 0.2);
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ================= RESPONSIVO ================= */
+
+@media (max-width: 1024px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .leftSide, .rightSide {
+    width: 100%;
+  }
+
+  .leftSide {
+    position: relative !important; /* Desativa o pin no mobile */
+    height: auto;
+    padding: 80px 24px;
+    pointer-events: all;
+  }
+
+  .infoBlock {
+    position: relative; /* No mobile, os textos aparecem em sequência ou via fade simples */
+    opacity: 1 !important;
+    transform: none !important;
+    margin-bottom: 60px;
+  }
+  
+  .title { transform: none !important; }
+  .fadeContent { opacity: 1 !important; }
+
+  .imageItem {
+    height: auto;
+    margin-bottom: 40px;
+  }
+}

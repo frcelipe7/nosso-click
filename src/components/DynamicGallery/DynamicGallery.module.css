@@ -1,0 +1,50 @@
+.section {
+  padding: 80px 40px;
+  background: white;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: 220px;
+  gap: 16px;
+}
+
+.item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1s;
+}
+
+.item:hover .image {
+  transform: scale(1.1);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.1);
+  opacity: 0;
+  transition: 0.3s;
+}
+
+.item:hover .overlay {
+  opacity: 1;
+}
+
+/* spans dinâmicos */
+.large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.tall {
+  grid-row: span 2;
+}

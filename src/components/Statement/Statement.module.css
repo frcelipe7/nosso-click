@@ -1,0 +1,98 @@
+.section {
+  position: relative;
+  padding: 200px 40px;
+  background: var(--bg-color);
+  /* overflow: hidden; */
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 400px;
+}
+
+/* TEXTO */
+
+.content {
+  max-width: 700px;
+  z-index: 2;
+}
+
+.text {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(20px, 2.5vw, 32px);
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* SPLIT TEXT */
+
+.word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.char {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* IMAGENS */
+
+.img {
+  position: absolute;
+  object-fit: cover;
+  opacity: 0.95;
+
+  will-change: transform;
+}
+
+/* TAMANHOS (velocidade inversa) */
+
+.i1 {
+  width: 80px;
+  top: 35%;
+  right: 10%;
+}
+
+.i2 {
+  width: 140px;
+  top: 20%;
+  right: 12%;
+}
+
+.i3 {
+  width: 100px;
+  bottom: 20%;
+  left: 40%;
+}
+
+.i4 {
+  width: 160px;
+  bottom: 15%;
+  left: 8%;
+}
+
+.i5 {
+  width: 60px;
+  top: 5%;
+  left: 5%;
+}
+
+/* INTERAÇÃO */
+
+.img:hover {
+  transform: scale(1.05);
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 900px) {
+  .section {
+    padding: 140px 20px;
+  }
+
+  .img {
+    display: none;
+  }
+}
